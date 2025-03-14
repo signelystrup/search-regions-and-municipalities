@@ -29,7 +29,8 @@ fetch("https://api.dataforsyningen.dk/kommuner")
     createKommuneCards();
 }).catch(error => console.log("fejl i kommuner: " + error));
 
-
+//get regions. Not used yet.
+/*
 fetch("https://api.dataforsyningen.dk/regioner")
     .then(response => {
         console.log("json()ing regioner.");
@@ -43,3 +44,6 @@ fetch("https://api.dataforsyningen.dk/regioner")
         console.log("regioner: " + regioner);
     })
     .catch(error => console.log("fejl i regioner: " + error));
+*/
+
+ */

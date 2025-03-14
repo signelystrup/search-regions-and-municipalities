@@ -16,7 +16,7 @@ searchBar.append(searchLabel);
 const searchInput = document.createElement("input");
 searchInput.type = "search"; //type
 searchInput.id = "search-input";
-searchInput.placeholder ="...";
+searchInput.placeholder ="Søg kommuner...";
 searchBar.append(searchInput);
 
 const searchButton = document.createElement("button");
@@ -37,7 +37,6 @@ function createKommuneCards(){
           //create div, add classes.
           const card = document.createElement("div");
           card.classList.add("card");
-          card.classList.add("hide");
           card.id = "kommune-card-" + kommune.kode;
           kommune.element = card; //add card to kommune card.
 
@@ -53,7 +52,6 @@ function createKommuneCards(){
           //console.log("card succesfully created");
 
      });
-     console.log("kommune: " + kommunelist[0].navn);
 }
 
 searchInput.addEventListener("input", (e) => {
