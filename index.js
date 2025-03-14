@@ -31,7 +31,7 @@ cardList.id = "card-list";
 searchWrapper.append(cardList);
 
 
-const dataList = [];
+//const dataList = [];
 
 const data = {
      data: 0,
@@ -40,16 +40,13 @@ const data = {
      element: null
 }
 
-function createDataCards(){
-     dataList.push(data);
-     dataList.push(data);
-     dataList.push(data);
-
-     dataList.forEach(data => {
+function createRegionCards(dataList){
+     dataList.forEach(region => {
+          //create div, add classes.
           const card = document.createElement("div");
           card.classList.add("card");
           card.classList.add("hide");
-          data.element = card;
+          region.element = card;
 
           const header = document.createElement("h2");
           const text = document.createElement("p");
