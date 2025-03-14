@@ -1,0 +1,9 @@
+div{
+    padding: 5px;
+    margin: 5px;
+    border: darkslategray solid 1px;
+}
+
+.hide{
+    display: none;
+}
