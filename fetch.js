@@ -1,28 +1,27 @@
 let kommuneList = [];
 let regionList = [];
 
+
 fetch("https://api.dataforsyningen.dk/kommuner")
     .then(response => {
-        if(response.ok){
+        if (response.ok) {
             console.log("json()ing kommuner");
             return response.json(); //json() triggers new promise(.then)
-        }else{
+        } else {
             console.log("fetch kommuner not succesful");
         }
     }).then(data => {
     console.log(data);
     //defining kommuneobjekt.
-    kommuneList = data.map((kommune)=> {
+    kommuneList = data.map((kommune) => {
 
         const kommuneCard = document.createElement("div");
-        kommuneCard.classList.add("kommune");
-        kommuneCard.classList.add("hide");
-        kommuneCard.id = "kommune-card-" + kommune.kode;
 
         return {
             kode: kommune.kode,
             navn: kommune.navn,
             regionskode: kommune.regionskode,
+            regionNavn: kommune.region.navn,
             element: kommuneCard
         };
     });
@@ -36,9 +35,9 @@ fetch("https://api.dataforsyningen.dk/regioner")
     })
     .then(data => {
         console.log(data)
-        data.forEach((dataElement)=>{
+        data.forEach((dataElement) => {
             regioner.push(dataElement);
         });
-        console.log ("regioner: " + regioner);
+        console.log("regioner: " + regioner);
     })
     .catch(error => console.log("fejl i regioner: " + error));

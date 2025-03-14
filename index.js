@@ -30,28 +30,22 @@ const cardList = document.createElement("div");
 cardList.id = "card-list";
 searchWrapper.append(cardList);
 
+kommuneList.length < 1 ? createKommuneCards() : console.log("ingen kommuner");
 
-//const dataList = [];
-
-const data = {
-     data: 0,
-     name: "hanne",
-    age: 21,
-     element: null
-}
-
-function createRegionCards(dataList){
-     dataList.forEach(region => {
+function createKommuneCards(){
+     kommuneList.forEach(kommune => {
           //create div, add classes.
           const card = document.createElement("div");
           card.classList.add("card");
           card.classList.add("hide");
-          region.element = card;
+          card.id = "kommune-card-" + kommune.kode;
+          kommune.element = card; //add card to kommune card.
 
           const header = document.createElement("h2");
           const text = document.createElement("p");
-          header.innerText = data.name;
-          text.innerText = "age: " + data.age;
+          header.innerText = kommune.name;
+          text.innerText = "kode: " + kommune.kode
+          + "\nregion: " + kommune.regionNavn;
 
           card.append(header);
           card.append(text);
@@ -61,13 +55,11 @@ function createRegionCards(dataList){
      });
 }
 
-createDataCards();
-
 searchInput.addEventListener("input", (e) => {
      const userInput = e.target.value; //get userinput
      console.log (userInput);
 
-     dataList.forEach(data => {
+     kommuneList.forEach(data => {
           const isVisible = data.name.includes(userInput) || data.age.toString().includes(userInput); //check userinput against name and age.
           data.element.classList.toggle("hide", !isVisible); //toggle hide class. If isVisible, hide class is removed.
      });
