@@ -46,4 +46,3 @@ fetch("https://api.dataforsyningen.dk/regioner")
     .catch(error => console.log("fejl i regioner: " + error));
 */
 
- */
