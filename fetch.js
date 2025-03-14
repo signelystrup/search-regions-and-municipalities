@@ -23,8 +23,10 @@ fetch("https://api.dataforsyningen.dk/kommuner")
             regionskode: kommune.regionskode,
             regionNavn: kommune.region.navn,
             element: kommuneCard
-        };
-    });
+        };//end of kommune object.
+    });//end of map kommunelist
+
+    createKommuneCards();
 }).catch(error => console.log("fejl i kommuner: " + error));
 
 
